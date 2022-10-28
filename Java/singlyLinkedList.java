@@ -52,6 +52,7 @@ public class singlyLinkedList
            Node newNode=new Node(data);
            Node temp=head;
            if(head==null){
+            System.out.println("Please Create LinkedList first");
             return;
         }
           Node prev=head;   //initially we assign prev=head if key present in first list
@@ -67,9 +68,28 @@ public class singlyLinkedList
                 temp=temp.nxt;
            
            }
-            
+           System.out.println("Ket Not found");
+
+         
            
     }
+    public void deleteNode(int key){
+          Node temp=head;
+          Node prev=head;
+          while(temp!=null){
+            if(temp.data==key){
+                prev.nxt=temp.nxt;
+                temp=null;
+
+                 return;
+            }
+            prev=temp;
+            temp=temp.nxt;
+          }
+          System.out.println("invalid key");
+
+    }
+     
    public static void main(String[] args) {
         
     singlyLinkedList ll=new singlyLinkedList() ; 
@@ -79,7 +99,10 @@ public class singlyLinkedList
    // ll.printList();
     ll.insertAtBeg(250);
    // ll.printList();
-    ll.insertAfter(20,30);  //enter data value which after you want to insert newList
+    ll.insertAfter(20,30);
+      //enter data value which after you want to insert newList
+   // ll.printList();
+    ll.deleteNode(10);
     ll.printList();
 
 
